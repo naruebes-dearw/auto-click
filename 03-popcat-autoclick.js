@@ -14,6 +14,8 @@ const keyup = new KeyboardEvent('keyup', { key:'t' });
 // initial setup
 let run = '';
 let status = false;
+const clicksPer30sec = 750; // maximum 800
+const delay = 60 * 1000 / clicksPer30sec / 2;
 
 // clear bot status
 document.cookie.split(';').map(cookie => {
@@ -36,15 +38,15 @@ function start() {
   console.log('%c started... ', 'color:	#1a73e8; background:white')
   run = setInterval((e) => {
     document.dispatchEvent(keyDown);
-    document.dispatchEvent(keyup);
-  }, 30); // click every 30 ms
+    // document.dispatchEvent(keyup);
+  }, delay); // click every 30 ms
 }
 
 // stop
 function stop() {
   clearInterval(run); // stop running
   console.log('%c stop ', 'color:red; background:white');
-  // document.cookie = 'pop_count=0'; // reset count
+  document.cookie = 'pop_count=0'; // reset count
 }
 
 console.log('%c   Click on "POPCAT" text to run and stop.   ', 'color:green; background:white')
