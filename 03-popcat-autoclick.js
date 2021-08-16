@@ -4,7 +4,6 @@
   2. enter script in browser's console
   3. click on "POPCAT" text to run and stop
 
-  script run 1000 click per 30 seconds
   ( API rate limit per IP address = 800 clicks per 30 seconds )
 */
 
